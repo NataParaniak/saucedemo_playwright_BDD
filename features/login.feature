@@ -10,8 +10,8 @@ Feature: Login
  Scenario: Login with a locked-out user
 
 Given the user is on the SauceDemo login page
-When the user enters username locked_out_user
-And the user enters password secret_sauce
+When the user enters username "locked_out_user"
+And the user enters password "secret_sauce"
 And the user clicks the Login button
 Then the error message "Sorry, this user has been locked out" should be displayed
 
