@@ -12,9 +12,15 @@ export default defineConfig({
  retries: 2,
 
   use: {
-    baseURL: 'https://www.saucedemo.com/v1',
+    baseURL: 'https://www.saucedemo.com',
     headless: true,
   },
+  reporter: [
+    ['list'],
+    ['html', {
+      open: 'never',
+    }],
+  ],
 
   projects: [
     {

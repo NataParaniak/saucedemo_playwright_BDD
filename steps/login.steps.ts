@@ -1,48 +1,61 @@
 
 import { createBdd } from 'playwright-bdd';
 import { expect } from '@playwright/test';
+import { LoginPage } from '../Pages/LoginPage';
+import { validUser, lockedUser } from '../test-data/credentials';
 
 const { Given, When, Then } = createBdd();
 
 Given('the user is on the SauceDemo login page', async ({ page }) => {
-  await page.goto('/');
+  const loginPage = new LoginPage(page);
+
+  await loginPage.navigate();
 });
 
-When('the user enters username {string}', async ({ page }, username) => {
-  await page.locator('[data-test="username"]').fill(username);
+When('the user enters valid credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
+  await loginPage.inputLogin(validUser.username,validUser.password);
 });
 
-When('the user enters password {string}', async ({ page }, password) => {
-  await page.locator('[data-test="password"]').fill(password);
+When('the user enters blocked credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
+  await loginPage.inputLogin(lockedUser.username,lockedUser.password);
 });
+
 
 
 When('the user clicks the Login button', async ({ page }) => {
-  await page.locator('[data-test="login-button"]').click();
+  const loginPage = new LoginPage(page);
+
+  await loginPage.clickLogin();
 });
 
 Then('the user should be redirected to the Inventory page', async ({ page }) => {
-  await expect(page).toHaveURL(/inventory.html/);
+  await expect(page).toHaveURL(/inventory\.html/);
 });
 
 Then(
   'the error message {string} should be displayed',
   async ({ page }, message) => {
-    await expect(page.locator('[data-test="error"]')).toContainText(message);
-  }
-);
+    const loginPage = new LoginPage(page);
 
-When(
-  'the user clicks the Login button without entering username and password',
-  async ({ page }) => {
-    await page.locator('[data-test="login-button"]').click();
+    await expect(loginPage.errorMessage).toHaveText(message);
   }
 );
 
 Then(
-  'a validation error message should be displayed',
-  async ({ page }) => {
-    await expect(page.locator('[data-test="error"]'))
-      .toContainText('Username is required');
+  'login error message {string} should be displayed',
+  async ({ page }, message) => {
+    const loginPage = new LoginPage(page);
+
+    await expect(loginPage.errorMessage).toHaveText(message);
   }
 );
+
+Then('user should remain on the login page', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
+  await expect(loginPage.loginButton).toBeVisible();
+});
