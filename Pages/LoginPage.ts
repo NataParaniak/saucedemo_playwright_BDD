@@ -1,5 +1,5 @@
-import { expect,type Locator, type Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { type Locator, type Page } from "@playwright/test";
+import { BasePage } from "./BasePage";
 
 export class LoginPage extends BasePage {
   readonly username: Locator;
@@ -17,9 +17,9 @@ export class LoginPage extends BasePage {
   }
 
   async navigate() {
-    await super.navigate('/');
+    await super.navigate("/");
   }
-  
+
   async inputLogin(username: string, password: string) {
     await this.username.fill(username);
     await this.password.fill(password);
