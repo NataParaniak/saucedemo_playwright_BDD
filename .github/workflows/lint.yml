@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [master, Playwright_BDD]
+    branches: [master, saucedemo_playwright_BDD]
   pull_request:
 
 jobs:
