@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - eslint+prettier_task
+      - eslint_prettier_task
       - Playwright_BDD
 
   pull_request:
