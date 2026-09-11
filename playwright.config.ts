@@ -1,14 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+
+const testDir = defineBddConfig({
+  features: './features/*.feature',
+  steps: './steps/*.ts',
+});
 
 export default defineConfig({
-  testDir: './tests',
+  testDir,
  workers: 2,
  retries: 2,
 
   use: {
-    baseURL: 'https://www.saucedemo.com/v1',
+    baseURL: 'https://www.saucedemo.com',
     headless: true,
   },
+  reporter: [
+    ['list'],
+    ['html', {
+      open: 'never',
+    }],
+  ],
 
   projects: [
     {
