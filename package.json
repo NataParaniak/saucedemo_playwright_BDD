@@ -1,7 +1,7 @@
 {
   "scripts": {
     "bddgen": "bddgen",
-    "test": "playwright test",
+    "test": "bddgen && playwright test",
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
