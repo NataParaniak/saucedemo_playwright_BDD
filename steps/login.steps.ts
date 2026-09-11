@@ -1,7 +1,7 @@
 import { createBdd } from "playwright-bdd";
 import { expect } from "@playwright/test";
 import { LoginPage } from "../Pages/LoginPage";
-import { validUser, lockedUser } from "../test-data/credentials";
+import {validUser, lockedUser } from '../test-data/credentials';
 
 const { Given, When, Then } = createBdd();
 

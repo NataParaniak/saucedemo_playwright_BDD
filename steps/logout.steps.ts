@@ -2,7 +2,8 @@ import { createBdd } from "playwright-bdd";
 import { expect } from "@playwright/test";
 import { LoginPage } from "../Pages/LoginPage";
 import { InventoryPage } from "../Pages/InventoryPage";
-import { validUser } from "../test-data/credentials";
+import { validUser } from '../test-data/credentials';
+
 
 const { Given, When, Then } = createBdd();
 
@@ -20,6 +21,7 @@ When("the user logs out", async ({ page }) => {
 });
 
 Then("the user should be redirected to the Login page", async ({ page }) => {
+  const loginPage = new LoginPage(page);
   await expect(page).toHaveURL("/");
-  await expect(page.locator('[data-test="username"]')).toBeVisible();
+  await expect(loginPage.loginButton).toBeVisible();
 });

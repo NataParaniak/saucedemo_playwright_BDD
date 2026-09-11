@@ -1,9 +1,15 @@
+import 'dotenv/config';
+
 export const validUser = {
-  username: "standard_user",
-  password: "secret_sauce",
+  username: process.env.VALIDUSERNAME!,
+  password: process.env.VALIDPASSWORD!,
 };
 
 export const lockedUser = {
-  username: "locked_out_user",
-  password: "secret_sauce",
+  username: process.env.LOCKEDUSERNAME!,
+  password: process.env.LOCKEDPASSWORD!,
 };
+
+
+
+
