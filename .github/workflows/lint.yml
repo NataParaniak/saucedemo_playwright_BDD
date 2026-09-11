@@ -10,11 +10,19 @@ on:
   pull_request:
 
   workflow_dispatch:
+    
 
 jobs:
   lint:
     name: ESLint and Prettier
     runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: https://www.saucedemo.com
+      VALIDUSERNAME: ${{ secrets.VALIDUSERNAME }}
+      VALIDPASSWORD: ${{ secrets.VALIDPASSWORD }}
+      LOCKEDUSERNAME: ${{ secrets.LOCKEDUSERNAME }}
+      LOCKEDPASSWORD: ${{ secrets.LOCKEDPASSWORD }}
 
     steps:
       - name: Checkout code
