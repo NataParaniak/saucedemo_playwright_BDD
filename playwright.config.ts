@@ -8,7 +8,7 @@ const testDir = defineBddConfig({
 
 export default defineConfig({
   testDir,
- workers: 2,
+ workers: 4,
  retries: 2,
 
   use: {
