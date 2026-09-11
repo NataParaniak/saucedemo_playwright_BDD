@@ -4,7 +4,8 @@
     "test": "playwright test",
     "lint": "eslint .",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "test:api": "jest"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
