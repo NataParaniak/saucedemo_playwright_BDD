@@ -2,8 +2,14 @@ name: Tests
 
 on:
   push:
-    branches: [master, eslint+prettier_task]
+    branches:
+      - master
+      - eslint+prettier_task
+      - Playwright_BDD
+
   pull_request:
+
+  workflow_dispatch:
 
 jobs:
 
