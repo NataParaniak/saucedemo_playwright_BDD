@@ -12,8 +12,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
-
   lint:
     name: ESLint and Prettier
     runs-on: ubuntu-latest
@@ -37,8 +35,6 @@ jobs:
       - name: Check Prettier
         run: npm run format:check
 
-
- 
   ui-tests:
     name: UI Tests
     needs: lint
@@ -63,8 +59,6 @@ jobs:
       - name: Run UI tests
         run: npm test
 
-
-  
   api-tests:
     name: API Tests
     needs: lint

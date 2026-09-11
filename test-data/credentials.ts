@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import "dotenv/config";
 
 export const validUser = {
   username: process.env.VALIDUSERNAME!,
@@ -9,7 +9,3 @@ export const lockedUser = {
   username: process.env.LOCKEDUSERNAME!,
   password: process.env.LOCKEDPASSWORD!,
 };
-
-
-
-
