@@ -1,11 +1,17 @@
 {
   "scripts": {
     "bddgen": "bddgen",
-    "test": "playwright test"
+    "test": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
+    "eslint": "...",
     "playwright-bdd": "^9.2.1",
+    "prettier": "^3.9.8",
+    "prettier-plugin-gherkin": "^4.0.0",
     "typescript": "^7.0.2"
   }
 }
