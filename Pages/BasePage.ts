@@ -1,4 +1,4 @@
-import { type Page } from "@playwright/test";
+import { type Page } from '@playwright/test';
 
 export class BasePage {
   readonly page: Page;
@@ -7,7 +7,7 @@ export class BasePage {
     this.page = page;
   }
 
-  async navigate(path = "/") {
+  async navigate(path = '/') {
     await this.page.goto(path);
   }
 }

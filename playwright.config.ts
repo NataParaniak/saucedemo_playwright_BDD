@@ -1,49 +1,51 @@
-import { defineConfig, devices } from "@playwright/test";
-import { defineBddConfig } from "playwright-bdd";
+import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+import 'dotenv/config';
 
 const testDir = defineBddConfig({
-  features: "./features/*.feature",
-  steps: "./steps/*.ts",
+  features: './features/*.feature',
+  steps: './steps/*.ts',
 });
 
 export default defineConfig({
   testDir,
-  workers: 2,
+  workers: 4,
   retries: 2,
 
   use: {
-    baseURL: "https://www.saucedemo.com",
+    baseURL: process.env.BASE_URL,
     headless: true,
   },
+
   reporter: [
-    ["list"],
+    ['list'],
     [
-      "html",
+      'html',
       {
-        open: "never",
+        open: 'never',
       },
     ],
   ],
 
   projects: [
     {
-      name: "Chrome",
+      name: 'Chrome',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
 
     {
-      name: "Firefox",
+      name: 'Firefox',
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices['Desktop Firefox'],
       },
     },
 
     {
-      name: "Safari",
+      name: 'Safari',
       use: {
-        ...devices["Desktop Safari"],
+        ...devices['Desktop Safari'],
       },
     },
   ],

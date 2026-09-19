@@ -2,7 +2,9 @@ name: Tests
 
 on:
   push:
+    branches: [master]
   pull_request:
+    branches: [master]
 
 jobs:
   lint:
@@ -32,6 +34,12 @@ jobs:
     name: UI Tests
     needs: lint
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ vars.BASE_URL }}
+      VALIDUSERNAME: ${{ secrets.VALIDUSERNAME }}
+      VALIDPASSWORD: ${{ secrets.VALIDPASSWORD }}
+      LOCKEDUSERNAME: ${{ secrets.LOCKEDUSERNAME }}
+      LOCKEDPASSWORD: ${{ secrets.LOCKEDPASSWORD }}
 
     steps:
       - name: Checkout code
