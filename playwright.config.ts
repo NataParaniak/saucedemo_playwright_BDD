@@ -1,10 +1,10 @@
-import { defineConfig, devices } from "@playwright/test";
-import { defineBddConfig } from "playwright-bdd";
-import "dotenv/config";
+import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+import 'dotenv/config';
 
 const testDir = defineBddConfig({
-  features: "./features/*.feature",
-  steps: "./steps/*.ts",
+  features: './features/*.feature',
+  steps: './steps/*.ts',
 });
 
 export default defineConfig({
@@ -18,34 +18,34 @@ export default defineConfig({
   },
 
   reporter: [
-    ["list"],
+    ['list'],
     [
-      "html",
+      'html',
       {
-        open: "never",
+        open: 'never',
       },
     ],
   ],
 
   projects: [
     {
-      name: "Chrome",
+      name: 'Chrome',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
 
     {
-      name: "Firefox",
+      name: 'Firefox',
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices['Desktop Firefox'],
       },
     },
 
     {
-      name: "Safari",
+      name: 'Safari',
       use: {
-        ...devices["Desktop Safari"],
+        ...devices['Desktop Safari'],
       },
     },
   ],

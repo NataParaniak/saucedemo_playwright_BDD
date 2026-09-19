@@ -1,7 +1,7 @@
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect, test } from '@jest/globals';
 
-describe("Booking API", () => {
-  test("should pass", () => {
+describe('Booking API', () => {
+  test('should pass', () => {
     expect(true).toBe(true);
   });
 });

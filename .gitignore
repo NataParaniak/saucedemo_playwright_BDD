@@ -6,3 +6,4 @@ screenshots/
 videos/
 traces/
 .env
+.features-gen/
